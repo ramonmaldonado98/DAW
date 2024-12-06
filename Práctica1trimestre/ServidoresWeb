@@ -12,7 +12,7 @@ sudo apt update
 sudo apt install apache2 -y
 
 
-### Configurar el archivo `/etc/hosts`:
+### Configurar el archivo /etc/hosts:
 Edita el archivo:
 
 sudo nano /etc/hosts
