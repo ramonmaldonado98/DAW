@@ -8,7 +8,7 @@ Este proyecto detalla los pasos necesarios para instalar y configurar un servido
 
 ### Actualizar los repositorios e instalar Apache:
 
-![](https://github.com/ramonmaldonado98/DAW/tree/main/Práctica1trimestre/Capturas/1/1.png)
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/1/1.png)
 
 sudo apt update
 sudo apt install apache2 -y
@@ -16,6 +16,8 @@ sudo apt install apache2 -y
 
 ### Configurar el archivo /etc/hosts:
 Edita el archivo:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/1/2.png)
 
 sudo nano /etc/hosts
 
@@ -28,9 +30,13 @@ Añade las siguientes líneas:
 ### Configurar Virtual Hosts:
 #### Para centro.intranet:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/1/3.png)
+
 sudo nano /etc/apache2/sites-available/centro.intranet.conf
 
 Contenido:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/1/4.png)
 
 <VirtualHost *:80>
     ServerName centro.intranet
@@ -51,6 +57,8 @@ Contenido:
 
 
 ### Activar sitios y reiniciar Apache:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/1/5.png)
 
 sudo mkdir -p /var/www/centro.intranet /var/www/departamentos.centro.intranet
 sudo a2ensite centro.intranet.conf
