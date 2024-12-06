@@ -72,10 +72,14 @@ sudo systemctl reload apache2
 
 ### Instalar PHP, MySQL y módulos necesarios:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/2/1.png)
+
 sudo apt install php libapache2-mod-php php-mysql mysql-server -y
 
 
 ### Activar módulos de Apache:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/2/2.png)
 
 sudo a2enmod php
 sudo systemctl reload apache2
@@ -83,6 +87,8 @@ sudo systemctl reload apache2
 
 ### Verificar PHP:
 Crea un archivo de prueba:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/2/3.png)
 
 echo "<?php phpinfo(); ?>" | sudo tee /var/www/centro.intranet/info.php
 
@@ -94,6 +100,8 @@ Accede a `http://centro.intranet/info.php` desde tu navegador.
 
 ### Descargar e instalar WordPress:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/3/1.png)
+
 wget https://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz
 sudo mv wordpress/* /var/www/centro.intranet/
@@ -101,15 +109,21 @@ sudo mv wordpress/* /var/www/centro.intranet/
 
 ### Configurar permisos:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/3/2.png)
+
 sudo chown -R www-data:www-data /var/www/centro.intranet
 sudo chmod -R 755 /var/www/centro.intranet
 
 
 ### Configurar la base de datos:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/3/3.png)
+
 sudo mysql
 
 En el shell de MySQL:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/3/4.png)
 
 CREATE DATABASE wordpress;
 CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';
@@ -126,6 +140,8 @@ Completa la configuración accediendo a http://centro.intranet en tu navegador.
 
 ### Instalar y activar el módulo:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/4/1.png)
+
 sudo apt install libapache2-mod-wsgi-py3 -y
 sudo a2enmod wsgi
 sudo systemctl reload apache2
@@ -137,9 +153,13 @@ sudo systemctl reload apache2
 
 ### Crear la aplicación Python:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/5/1.png)
+
 sudo nano /var/www/departamentos.centro.intranet/app.wsgi
 
 Contenido:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/5/2.png)
 
 def application(environ, start_response):
     status = '200 OK'
@@ -171,12 +191,20 @@ sudo systemctl reload apache2
 
 ### Crear un archivo de contraseñas:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/6/1.png)
+
 sudo apt install apache2-utils
 sudo htpasswd -c /etc/apache2/.htpasswd user1
 
 
 ### Configurar autenticación en el Virtual Host:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/6/2.png)
+
 Edita /etc/apache2/sites-available/departamentos.centro.intranet.conf:
+
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/6/3.png)
 
 <Directory /var/www/departamentos.centro.intranet>
     AuthType Basic
@@ -197,15 +225,21 @@ sudo systemctl reload apache2
 
 ### Instalar AWStats:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/7/1.png)
+
 sudo apt install awstats -y
 
 
 ### Configurar AWStats:
 Edita el archivo de configuración:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/7/2.png)
+
 sudo nano /etc/awstats/awstats.localhost.conf
 
 Modifica SiteDomain a:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/7/3.png)
 
 SiteDomain="centro.intranet"
 
@@ -221,11 +255,18 @@ sudo awstats --update -config=localhost
 
 ### Instalar Nginx y PHP-FPM:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/8/1.png)
+
 sudo apt install nginx php-fpm -y
 
 
 ### Configurar el Virtual Host en Nginx:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/8/2.png)
+
 Edita /etc/nginx/sites-available/servidor2.centro.intranet:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/8/3.png)
 
 server {
     listen 8080;
@@ -243,11 +284,15 @@ server {
 
 Habilita el sitio y reinicia Nginx:
 
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/8/4.png)
+
 sudo ln -s /etc/nginx/sites-available/servidor2.centro.intranet /etc/nginx/sites-enabled/
 sudo mkdir -p /var/www/servidor2.centro.intranet
 sudo systemctl restart nginx
 
 
 ### Instalar phpMyAdmin:
+
+![](https://github.com/ramonmaldonado98/DAW/blob/main/Práctica1trimestre/Capturas/8/5.png)
 
 sudo apt install phpmyadmin -y
