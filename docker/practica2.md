@@ -105,13 +105,13 @@ docker login
 ### 4. Etiquetar la imagen para publicarla
 
 ```bash
-docker tag proyecto javiersand2/proyecto:latest
+docker tag proyecto ramonmaldonado/proyecto:latest
 ```
 
 ### 5. Subir la imagen al repositorio
 
 ```bash
-docker push javiersand2/proyecto:latest
+docker push ramonmaldonado/proyecto:latest
 ```
 
 ![Subida de la Imagen](https://github.com/user-attachments/assets/4f25edd5-8143-4c37-866a-527620bfe8c2)
