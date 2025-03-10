@@ -110,7 +110,7 @@ CMD python3 app.py
 $ docker build -t josedom24/ejemplo3:v1 .
 $ docker images
 REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-javiersand2/ejemplo1     v1                  8c3275799063        1 minute ago      226MB
+ramonmaldonado/ejemplo1     v1                  8c3275799063        1 minute ago      226MB
 ```
 
 ### Acceso a la Aplicación
