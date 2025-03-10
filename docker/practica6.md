@@ -32,7 +32,7 @@ CMD apache2ctl -D FOREGROUND
 Ejecutamos el siguiente comando para construir la imagen:
 
 ```sh
-$ docker build -t javiersand2/ejemplo1:v1 .
+$ docker build -t ramonmaldonado/ejemplo1:v1 .
 ```
 
 ### Verificación de la Imagen
@@ -42,7 +42,7 @@ Comprobamos que la imagen se haya creado correctamente:
 ```sh
 $ docker images
 REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-javiersand2/ejemplo1     v1                  8c3275799063        1 minute ago      226MB
+ramonmaldonado/ejemplo1     v1                  8c3275799063        1 minute ago      226MB
 ```
 
 ### Creación y Ejecución del Contenedor
